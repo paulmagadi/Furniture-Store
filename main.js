@@ -66,8 +66,6 @@ function addToCart(productId) {
             alertEl.classList.remove('show-alert');
         }, 3000); // Hide alert after 3 seconds
     }
-
-    
     renderCartItem();
 }
 
@@ -105,10 +103,11 @@ function renderCartItem() {
 }
 
 // Remove item from cart
-
 const confirmRemoveModal = document.getElementById('confirm-remove-modal');
 const confirmRemoveButton = document.getElementById('confirm-remove-button');
 const cancelRemoveButton = document.getElementById('cancel-remove-button');
+const closeModalButton = document.getElementById('close-modal');
+
 
 function removeFromCart(productId) {
     const productIndex = cart.findIndex(item => item.id === productId);
@@ -125,10 +124,13 @@ function removeFromCart(productId) {
             alertEl.classList.add('show-alert');
             setTimeout(() => {
                 alertEl.classList.remove('show-alert');
-            }, 3000); // Hide alert after 3 seconds
+            }, 3000); 
         };
 
         cancelRemoveButton.onclick = () => {
+            confirmRemoveModal.classList.remove('show-modal');
+        };
+        closeModalButton.onclick = () => {
             confirmRemoveModal.classList.remove('show-modal');
         };
     }
