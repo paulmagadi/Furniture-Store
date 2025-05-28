@@ -193,7 +193,6 @@ footer {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     display: none;
-    /* z-index: 1000; */
 }
 
 .cart.show-cart {
@@ -368,11 +367,14 @@ footer {
     background-color: var(--accent-color);
     position: fixed;
     top: 10px;
-    left: 50%;
-    translate: -50% 0;
+    margin: 0 auto;
+    left: 10px;
     border-radius: 5px;
     display: none;
     z-index: 10001;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .alert.show-alert {

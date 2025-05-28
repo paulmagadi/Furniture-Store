@@ -65,8 +65,10 @@ function addToCart(productId) {
         setTimeout(() => {
             alertEl.classList.remove('show-alert');
         }, 3000); // Hide alert after 3 seconds
-        renderCartItem();
     }
+
+    
+    renderCartItem();
 }
 
 // Render cart items
