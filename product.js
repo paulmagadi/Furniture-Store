@@ -1,7 +1,4 @@
 
-// const productModal = document.getElementById('product-modal');
-// const productCard = document.querySelectorAll('.view-product');
-
 function openProductModal(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {

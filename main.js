@@ -58,6 +58,93 @@ function renderProducts(productList) {
     });
 }
 
+// Product details modal functionality
+function openProductModal(productId) {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+        // Populate modal content
+        document.getElementById('modal-product-title').textContent = product.name;
+        document.getElementById('modal-product-price').textContent = `$${product.price}`;
+        document.getElementById('modal-product-image').src = product.image;
+        document.getElementById('modal-product-description').textContent = product.description;
+
+        const addToCartBtn = document.getElementById('modal-add-to-cart');
+        addToCartBtn.setAttribute('data-id', product.id);
+
+        // Show modal
+        document.getElementById('product-modal').style.display = 'flex';
+    }
+}
+
+function attachViewButtons() {
+    document.querySelectorAll('.view-product').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const productId = parseInt(e.target.getAttribute('data-id'));
+            openProductModal(productId);
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderProducts(products);
+    attachViewButtons();
+    renderCartItem();
+});
+
+document.getElementById('modal-add-to-cart').addEventListener('click', (e) => {
+    const productId = parseInt(e.target.getAttribute('data-id'));
+    addToCart(productId);
+    document.getElementById('product-modal').classList.remove('show-modal');
+});
+
+document.querySelectorAll('.close-product-modal').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.getElementById('product-modal').style.display = 'none';
+    });
+});
+
+
+
+// Product search functionality
+const searchInput = document.getElementById('search-input');
+const searchContainer = searchInput.parentElement;
+let searchTimeout;
+
+// Create clear button
+const clearBtn = document.createElement('button');
+clearBtn.type = 'button';
+clearBtn.textContent = 'Clear';
+clearBtn.className = 'clear-search-btn';
+clearBtn.style.display = 'none';
+searchContainer.appendChild(clearBtn);
+
+searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    clearBtn.style.display = searchInput.value ? 'inline-block' : 'none';
+    searchTimeout = setTimeout(() => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const filteredProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.description.toLowerCase().includes(searchTerm)
+        );
+        renderProducts(filteredProducts);
+        attachViewButtons(); // Reattach view buttons after filtering
+        // Show message if no products found
+        const container = document.getElementById('product-list');
+        if (filteredProducts.length === 0) {
+            container.innerHTML += `<p class="no-results">No products found for <strong>${searchInput.value}</strong>. <br> Please try a different search term.</p>`;
+        }
+    }, 600); 
+
+
+});
+
+clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    renderProducts(products);
+});
+
 
 // Cart functionality
 // Initialize cart as an empty array

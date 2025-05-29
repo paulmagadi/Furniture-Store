@@ -102,8 +102,77 @@ nav a {
     font-size: 1rem;
     cursor: pointer;
     text-decoration: none;
-    transition: background 0.3s, transform 0.2s;
+    transition: all 0.5s, transform 0.2s;
 }
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: scale(0.97);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.5s, transform 0.2s;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+    transform: scale(0.97);
+}
+
+.products-section {
+    padding: 2rem 0;
+    background: var(--background-color);
+}
+
+.products-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.products-section p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* Uncomment if you want to add filter options
+.products-section .filter-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filter-options label {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.filter-options select {
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background: var(--accent-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.filter-options .filter-select {
+    padding: 1px 12px;
+} */
+
 
 .products {
     display: flex;
@@ -111,7 +180,7 @@ nav a {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
     background: var(--background-color);
     border-radius: 8px;
 }
@@ -418,7 +487,7 @@ footer hr {
     background-color: var(--secondary-color);
     color: var(--accent-color);
     position: fixed;
-    top: 0;
+    top: 10px;
     left: 50%;
     translate: -50% 0;
     border-radius: 5px;
