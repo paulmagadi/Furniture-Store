@@ -68,20 +68,51 @@
 
         <section class="about">
             <h2>About Us</h2>
-            <p>At Modern Furniture Store, we believe in providing quality furniture that combines style and comfort. Our
-                collection is carefully curated to meet the needs of modern living.</p>
-            <p>We are committed to sustainability and source our materials responsibly. Our team is dedicated to
-                ensuring that you find the perfect pieces to make your home a reflection of your style.</p>
-            <p>Thank you for choosing us for your furniture needs. We look forward to helping you create a beautiful and
-                functional space.</p>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Welcome to Modern Furniture Store, your one-stop destination for high-quality furniture that
+                        combines style and comfort. Our mission is to provide you with the best selection of modern and
+                        classic furniture pieces that suit your taste and budget.</p>
+                    <p>We believe that furniture should not only be functional but also enhance the beauty of your home.
+                        That's why we carefully curate our collection to include only the finest pieces crafted from
+                        premium materials.</p>
+                    <p>Whether you're looking for a new sofa, dining table, or bedroom set, we have something for
+                        everyone. Our team is dedicated to helping you find the perfect furniture that fits your
+                        lifestyle and preferences.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/b8.jpg" alt="About Us Image">
+                </div>
+            </div>
 
         </section>
+
         
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p>"I love my new sofa! It's comfortable and looks great in my living room."</p>
+                    <h3>- Sarah J.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The quality of the furniture is outstanding. Highly recommend!"</p>
+                    <h3>- Mark T.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Great customer service and fast delivery. Will shop again!"</p>
+                    <h3>- Emily R.</h3>
+                </div>
+            </div>
+        </section>
+
         <section class="contact">
             <h2>Contact Us</h2>
             <p>If you have any questions or need assistance, please feel free to reach out to us.</p>
             <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
             <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            <p>Address: 123 Modern St, Furniture City, FC 12345</p>
+            <p>We are here to help you with any inquiries or support you may need.</p>
             <p>Follow us on social media for the latest updates and promotions.</p>
             <div class="social-icons">
                 <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -92,14 +123,69 @@
             </div>
         </section>
 
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest furniture trends, promotions, and exclusive offers.</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </section>
 
-        
         
         <footer>
-            &copy; 2025 Modern Furniture Store. All rights reserved.
+            <div class="footer-container">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p>Address: 123 Modern St, Furniture City, FC 12345</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 - <script>document.write(new Date().getFullYear()); </script> Modern Furniture Store. All rights reserved.</p>
+                <p>Designed by <a href="https://paulmagadi.github.io" target="_blank" rel="noopener noreferrer">paulmagadi</a></p>
+            </div>
         </footer>
 
-
+        <!-- Modals -->
+        <!-- <div class="product-modal" id="product-modal">
+            <div class="product-modal-header">
+                <h2>Product Details</h2>
+                <button class="close-modal" id="close-product-modal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="product-modal-body">
+                <img src="" alt="Product Image" id="modal-product-image">
+                <h3 id="modal-product-title"></h3>
+                <p class="price" id="modal-product-price"></p>
+                <p class="description" id="modal-product-description"></p>
+                <button class="add-to-cart btn-primary" id="add-to-cart-button">Add to Cart</button>
+            </div>
+        </div> -->
 
         <div class="confirm-remove-modal" id="confirm-remove-modal">
             <div class="confirm-remove-modal-header">

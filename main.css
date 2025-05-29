@@ -15,6 +15,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
 body {
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
@@ -59,7 +64,7 @@ nav a {
     height: 70vh;
     color: #fff;
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
 }
 
@@ -67,7 +72,7 @@ nav a {
     max-width: 600px;
     text-align: center;
     background: rgba(0, 0, 0, 0.3);
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .hero h1 {
@@ -144,36 +149,74 @@ footer {
     margin-top: 2rem;
 }
 
-@media (max-width: 1000px) {
-    .product-card {
-        width: 31%;
-    }
-    
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-@media (max-width: 800px) {
-    .products {
-        gap: 0.5rem;
-        padding: 2rem 0.5rem;
-    }
-
-    .product-card {
-        width: 45%;
-    }
+.footer-container div {
+    flex: 1;
 }
 
+.footer-container div h3 {
+    margin-bottom: 0.5rem;
+}
 
-@media (max-width: 480px) {
-    .product-card {
-        width: 100%;
-        margin: 0;
-    }
+.footer-container div p {
+    margin: 0.5rem 0;
+}
+.footer-container div a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.footer-container div ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-container div ul li {
+    margin: 0.5rem 0;
+}
+
+.footer-container div a:hover {
+    text-decoration: underline;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 1rem 0;
+}
+
+.footer-bottom {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.footer-bottom a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
 }
 
 
 .cart {
     position: absolute;
-    top: 20px;
+    top: 0;
     right: 0;
     width: 100%;
     max-width: 400px;
@@ -362,7 +405,7 @@ footer {
     background-color: var(--secondary-color);
     color: var(--accent-color);
     position: fixed;
-    top: 10px;
+    top: 0;
     left: 50%;
     translate: -50% 0;
     border-radius: 5px;
@@ -397,5 +440,312 @@ footer {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+.about {
+    padding: 2rem;
+    background: var(--background-color);
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.about-text {
+    width: 60%;
+    text-align: left;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.about-image {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.testimonials {
+    padding: 1rem;
+    background: var(--background-color);
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.testimonial-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.testimonial-card {
+    background: var(--accent-color);
+    border-radius: 8px;
+    padding: 1rem;
+    width: 30%;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact {
+    padding: 2rem;
+    background: var(--background-color);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.contact .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-color);
+}
+
+.newsletter {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    padding: 2rem;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.newsletter input[type="email"] {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.newsletter button {
+    background: var(--secondary-color);
+    color: var(--accent-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s, transform 0.2s;
+}
+.newsletter button:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+}
+
+
+
+@media (max-width: 1000px) {
+    .product-card {
+        width: 31%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-text {
+        width: 100%;
+        padding: 1rem 0;
+        font-size: 1rem;
+    }
+
+    .about-image {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    
+}
+
+@media (max-width: 800px) {
+     .hero {
+        height: 60vh;
+    }
+
+    .hero-text {
+        padding: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .products {
+        gap: 0.5rem;
+        padding: 2rem 0.5rem;
+    }
+
+    .product-card {
+        width: 45%;
+    }
+
+    .about {
+        padding: 1rem;
+    }
+    
+    
+    .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonial-card {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .contact {
+        padding: 1rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .hero-text {
+        padding: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-container div {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+    
+    
+}
+
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%;
+        margin: 0;
+    }
+
+    .testimonial-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .newsletter {
+        padding: 1rem;
+    }
+
+    .newsletter h2 {
+        font-size: 1.3rem;
+    }
+
+    .newsletter p {
+        font-size: 1rem;
+    }
+
+    .newsletter form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 }
