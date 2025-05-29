@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="product.css">
 </head>
 
 <body>
@@ -50,6 +51,25 @@
                 </div>
 
                 <button class="checkout-button" id="checkout-button">Checkout</button>
+
+
+                <!-- Confirm Cart Item Remove Modal -->
+                <div class="confirm-remove-modal" id="confirm-remove-modal">
+                    <div class="confirm-remove-modal-header">
+                        <h4>Remove Cart Item</h4>
+                        <button class="close-modal" id="close-modal">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="confirm-remove-modal-body">
+                        <p>Are you sure you want to remove this item from your cart?</p>
+                        <strong id="remove-item-name"></strong>
+                    </div>
+                    <div class="confirm-remove-modal-footer">
+                        <button class="confirm-remove-button" id="confirm-remove-button">Yes</button>
+                        <button class="cancel-remove-button" id="cancel-remove-button">No</button>
+                    </div>
+                </div>
             </div>
         </nav>
 
@@ -182,43 +202,39 @@
             </div>
         </footer>
 
-        <!-- Modals -->
-        <!-- <div class="product-modal" id="product-modal">
-            <div class="product-modal-header">
-                <h2>Product Details</h2>
-                <button class="close-modal" id="close-product-modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="product-modal-body">
-                <img src="" alt="Product Image" id="modal-product-image">
-                <h3 id="modal-product-title"></h3>
-                <p class="price" id="modal-product-price"></p>
-                <p class="description" id="modal-product-description"></p>
-                <button class="add-to-cart btn-primary" id="add-to-cart-button">Add to Cart</button>
-            </div>
-        </div> -->
+        <button class="test" id="test">Button</button>
 
-        <div class="confirm-remove-modal" id="confirm-remove-modal">
-            <div class="confirm-remove-modal-header">
-                <h4>Remove Cart Item</h4>
-                <button class="close-modal" id="close-modal">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            <div class="confirm-remove-modal-body">
-                <p>Are you sure you want to remove this item from your cart?</p>
-            </div>
-            <div class="confirm-remove-modal-footer">
-                <button class="confirm-remove-button" id="confirm-remove-button">Yes</button>
-                <button class="cancel-remove-button" id="cancel-remove-button">No</button>
+        <!-- Modals -->
+        <div class="product-modal" id="product-modal">
+            <div class="product-modal-content">
+                <div class="product-modal-header">
+                    <h2>Product Details</h2>
+                    <button class="close-product-modal" id="close-product-modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="product-modal-body">
+                    <img src="" alt="Product Image" id="modal-product-image">
+                    <h3 id="modal-product-title"></h3>
+                    <p class="price" id="modal-product-price"></p>
+                    <p class="description" id="modal-product-description"></p>
+                    <button id="modal-add-to-cart" class="add-to-cart btn-primary">Add to Cart</button>
+                </div>
+
+                <div class="product-modal-footer">
+                    <a href="" class="btn-secondary" id="view-more-button">View More</a>
+                    <button class="btn-secondary close-product-modal" id="close-product-modal-footer">Close</button>
+                </div>
             </div>
         </div>
+
+
 
         <div class="alert" id="alert"></div>
     </div>
 
     <script src="main.js"></script>
+    <script src="product.js"></script>
 </body>
 
 </html>
