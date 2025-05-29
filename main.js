@@ -1,6 +1,30 @@
-/**
- * main.js - Starter template for a Furniture Store
- */
+//Menu toggle functionality
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-links');
+const navLinks = document.querySelectorAll('.nav-link');
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+
+    if (navMenu.classList.contains('active')) {
+        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>'; // Change icon to close
+    } else {
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>'; // Change icon to open
+    }
+});
+
+// Close the menu when a link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {  
+        navMenu.classList.remove('active');
+    });
+});
+
+// Product data and rendering logic
+// Ensure the document is ready before running scripts
+document.addEventListener('DOMContentLoaded', () => {
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = 'Cart (0)'; // Initialize cart count
+});
 
 // Sample product data
 const products = [
