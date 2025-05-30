@@ -67,7 +67,6 @@ nav a {
 }
 
 /* Cart  */
-
 .cart {
     position: absolute;
     top: calc(100% + 10px);
@@ -182,7 +181,7 @@ nav a {
 .confirm-remove-modal {
     position: absolute;
     top: 10px;
-    right: -50%;
+    right: 5%;
     width: 90%;
     max-width: 400px;
     height: auto;
@@ -197,7 +196,6 @@ nav a {
 .confirm-remove-modal.show-modal {
     display: block;
     animation: animateModal 0.5s ease-in-out;
-    right: 5%;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -279,11 +277,13 @@ nav a {
 
 @keyframes animateModal {
     0% {
-        transform: translateX(100%);
+        opacity: 0;
+        transform: translateY(-50%);
     }
 
     100% {
-        transform: translateX(0);
+        opacity: 1;
+        transform: translateY(0);
     }
 
 }
@@ -431,44 +431,41 @@ nav a {
     margin-top: 10px;
 }
 
-.pagination {
+/* === Filter  and Search Section === */
+.search-filter-container {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    align-items: center;
+    margin: 1em 0;
+    gap: 15px;
+    position: relative;
 }
 
-.pagination button {
-    background-color: grey;
+/* Filter Section  */
+
+.filter-toggle {
+    background-color: var(--primary-color);
     color: var(--accent-color);
-    border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.71rem 1rem;
     border-radius: 5px;
+    border: none;
+    font-size: 1rem;
     cursor: pointer;
-    margin: 0 0.25rem;
 }
 
-.pagination button:hover {
+.filter-toggle:hover {
     background-color: var(--secondary-color);
 }
 
-.page-button.active-page {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: bold;
-}
-
-/* === Filter Section === */
-
-/* === Filter Sidebar === */
 #filter-sidebar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -100%;
-    width: 80%;
+    width: 95%;
     max-width: 300px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     z-index: 1000;
     transition: left 0.3s ease-in-out;
@@ -478,60 +475,42 @@ nav a {
     left: 0;
 }
 
-.close-btn {
+#filter-section {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 6px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.filter-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-section-header h3 {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.filter-section-header .close-filter-btn {
     background: transparent;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    float: right;
-    margin-bottom: 10px;
-}
-
-/* Search and Filter Section */
-.search-filter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    gap: 10px;
-}
-
-/* Filter Toggle Button */
-.filter-toggle {
-    background-color: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    border: none;
-    z-index: 1001;
-    cursor: pointer;
-    height: 40px;
-}
-
-.filter-toggle:hover {
-    background-color: #0056b3;
-}
-
-/* === Filter Section === */
-#filter-section {
-    background-color: #f5f5f5;
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-#filter-section h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
     color: #333;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 0.5rem;
 }
 
-/* Category checkboxes */
+.filter-section-header .close-filter-btn:hover {
+    color: var(--secondary-color);
+}
+
+#filter-section hr {
+    border: none;
+    border-top: 1.5px solid #ccc;
+    margin: 1rem 0;
+}
+
 .filter-group {
     margin-bottom: 1.2rem;
 }
@@ -549,7 +528,6 @@ nav a {
     margin-right: 0.5rem;
 }
 
-/* Price inputs */
 #price-range {
     display: flex;
     justify-content: space-between;
@@ -565,9 +543,13 @@ nav a {
     font-size: 0.95rem;
 }
 
-/* Apply Button */
+#price-range input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
 #apply-filters {
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     padding: 0.6rem 1rem;
@@ -579,11 +561,8 @@ nav a {
 }
 
 #apply-filters:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
 }
-
-
-
 
 /* Product Search Section */
 .search {
@@ -591,7 +570,6 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 10px;
 }
 
 .search-container {
@@ -631,6 +609,33 @@ nav a {
     background-color: var(--primary-color);
 }
 
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.pagination button {
+    background-color: grey;
+    color: var(--accent-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 0.25rem;
+}
+
+.pagination button:hover {
+    background-color: var(--secondary-color);
+}
+
+.page-button.active-page {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
 
 /* About Section */
 .about {
@@ -653,7 +658,7 @@ nav a {
     background: rgba(255, 255, 255, 0.8);
     padding: 1rem;
     border-radius: 8px;
-    
+
 }
 
 .about-text {
@@ -1001,11 +1006,12 @@ footer hr {
             opacity: 0;
             transform: translateX(-100%);
         }
+
         to {
             opacity: 1;
             transform: translateX(0);
         }
-        
+
     }
 
     .hero {
@@ -1026,7 +1032,6 @@ footer hr {
 
     .search {
         width: 70%;
-        margin: 20px auto;
     }
 
     .footer-container {
@@ -1050,8 +1055,21 @@ footer hr {
         margin: 0;
     }
 
-    .testimonial-card {
+    .search-filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search {
         width: 100%;
+    }
+
+    .search-container {
+        width: 95%;
+    }
+
+    .testimonial-card {
+        width: 95%;
     }
 }
 

@@ -33,7 +33,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </span>
-            <a href="#" class="cart-icon" id="cart-icon">
+            <a href="#cart" class="cart-icon" id="cart-icon">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-count">(0)</span>
             </a>
@@ -73,7 +73,7 @@
             <div class="hero-text">
                 <h1>Discover Your Perfect Space</h1>
                 <p>Explore our curated collection of modern and classic furniture to transform your home.</p>
-                <a href="#" class="btn-primary">Shop Now</a>
+                <a href="#shop" class="btn-primary">Shop Now</a>
             </div>
         </section>
 
@@ -82,15 +82,20 @@
             <h2>Featured Products</h2>
             <p>Browse our exclusive selection of high-quality furniture designed to elevate your living space.</p>
 
-            <div class="search-filter">
+            <!-- Search Filter Container -->
+            <div class="search-filter-container">
                 <!-- Filter Toggle Button -->
                 <button id="filter-toggle" class="filter-toggle"><i class="fa-solid fa-bars"></i> Filters</button>
 
                 <!-- Sliding Sidebar for Filters -->
                 <aside id="filter-sidebar">
-                    <button id="close-filter" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
                     <div id="filter-section">
-                        <h3>Filter Products</h3>
+                        <div class="filter-section-header">
+                            <h3>Filter Products</h3>
+                            <button id="close-filter" class="close-filter-btn"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+
+                        <hr>
 
                         <div class="filter-group" id="category-filters">
                             <!-- JS fills this -->

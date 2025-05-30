@@ -205,7 +205,9 @@ document.getElementById('apply-filters').addEventListener('click', () => {
     const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
     const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
     const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
-
+    
+    
+    filterSidebar.classList.remove('open');
     currentProductList = products.filter(product => {
         const inCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
         const inPriceRange = product.price >= minPrice && product.price <= maxPrice;
@@ -284,7 +286,8 @@ function confirmRemove(id, name) {
     modal.classList.add('show-modal');
 
     document.getElementById('confirm-remove-button').onclick = () => {
-        cart = cart.filter(p => p.id !== id);
+        const index = cart.findIndex(p => p.id === id);
+        if (index !== -1) cart.splice(index, 1);
         updateCartDisplay();
         showAlert(`${name} removed from cart!`);
         modal.classList.remove('show-modal');
