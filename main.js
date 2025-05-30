@@ -6,9 +6,9 @@ menuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 
     if (navMenu.classList.contains('active')) {
-        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>'; // Change icon to close
+        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>'; 
     } else {
-        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>'; // Change icon to open
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>'; 
     }
 });
 
@@ -16,16 +16,12 @@ menuToggle.addEventListener('click', () => {
 navLinks.forEach(link => {
     link.addEventListener('click', () => {  
         navMenu.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
     });
 });
 
 
 // Product data and rendering logic
-// Ensure the document is ready before running scripts
-document.addEventListener('DOMContentLoaded', () => {
-    const cartCountElement = document.getElementById('cart-count');
-    cartCountElement.textContent = 'Cart (0)'; // Initialize cart count
-});
 
 // Sample product data
 const products = [
@@ -85,24 +81,20 @@ function attachViewButtons() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    renderProducts(products);
-    attachViewButtons();
-    renderCartItem();
-});
 
+// Add to cart button functionality in modal
 document.getElementById('modal-add-to-cart').addEventListener('click', (e) => {
     const productId = parseInt(e.target.getAttribute('data-id'));
     addToCart(productId);
     document.getElementById('product-modal').classList.remove('show-modal');
 });
 
+// Close product modal functionality
 document.querySelectorAll('.close-product-modal').forEach(btn => {
     btn.addEventListener('click', () => {
         document.getElementById('product-modal').style.display = 'none';
     });
 });
-
 
 
 // Product search functionality
@@ -261,7 +253,11 @@ function removeFromCart(productId) {
 // Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts(products);
+    attachViewButtons();
     renderCartItem();
+    
+    const cartCountElement = document.getElementById('cart-count');
+    cartCountElement.textContent = 'Cart (0)';
 });
 
 
