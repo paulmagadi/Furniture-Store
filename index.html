@@ -2,223 +2,265 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Furniture Store</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Furniture Store</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" rel="stylesheet" />
 
-  <!-- Icons & Stylesheets -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <link rel="stylesheet" href="main.css" />
-  <link rel="stylesheet" href="product.css" />
+    <!-- Icons & Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="product.css" />
 </head>
 
 <body>
-  <div class="container">
-    <!-- Header -->
-    <header>
-      <h1>Modern Furniture Store</h1>
-      <p>Quality. Comfort. Style.</p>
-    </header>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Modern Furniture Store</h1>
+            <p>Quality. Comfort. Style.</p>
+        </header>
 
-    <!-- Navigation -->
-    <nav>
-      <span class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></span>
-      <span class="nav-links" id="nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#shop" class="nav-link">Shop</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </span>
-      <a href="#" class="cart-icon" id="cart-icon">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <span id="cart-count">(0)</span>
-      </a>
+        <!-- Navigation -->
+        <nav>
+            <span class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></span>
+            <span class="nav-links" id="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#shop" class="nav-link">Shop</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </span>
+            <a href="#" class="cart-icon" id="cart-icon">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">(0)</span>
+            </a>
 
-      <!-- Cart -->
-      <div class="cart" id="cart">
-        <div class="cart-header">
-          <h2>Shopping Cart</h2>
-          <button class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div class="cart-items" id="cart-items"></div>
-        <div class="cart-total" id="cart-total">
-          <p>Total: $0.00</p>
-        </div>
-        <button class="checkout-button" id="checkout-button">Checkout</button>
+            <!-- Cart -->
+            <div class="cart" id="cart">
+                <div class="cart-header">
+                    <h2>Shopping Cart</h2>
+                    <button class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="cart-items" id="cart-items"></div>
+                <div class="cart-total" id="cart-total">
+                    <p>Total: $0.00</p>
+                </div>
+                <button class="checkout-button" id="checkout-button">Checkout</button>
 
-        <!-- Confirm Remove Modal -->
-        <div class="confirm-remove-modal" id="confirm-remove-modal">
-          <div class="confirm-remove-modal-header">
-            <h4>Remove Cart Item</h4>
-            <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
-          </div>
-          <div class="confirm-remove-modal-body">
-            <p>Are you sure you want to remove this item from your cart?</p>
-            <strong id="remove-item-name"></strong>
-          </div>
-          <div class="confirm-remove-modal-footer">
-            <button class="confirm-remove-button" id="confirm-remove-button">Yes</button>
-            <button class="cancel-remove-button" id="cancel-remove-button">No</button>
-          </div>
-        </div>
-      </div>
-    </nav>
+                <!-- Confirm Remove Modal -->
+                <div class="confirm-remove-modal" id="confirm-remove-modal">
+                    <div class="confirm-remove-modal-header">
+                        <h4>Remove Cart Item</h4>
+                        <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <div class="confirm-remove-modal-body">
+                        <p>Are you sure you want to remove this item from your cart?</p>
+                        <strong id="remove-item-name"></strong>
+                    </div>
+                    <div class="confirm-remove-modal-footer">
+                        <button class="confirm-remove-button" id="confirm-remove-button">Yes</button>
+                        <button class="cancel-remove-button" id="cancel-remove-button">No</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-text">
-        <h1>Discover Your Perfect Space</h1>
-        <p>Explore our curated collection of modern and classic furniture to transform your home.</p>
-        <a href="#" class="btn-primary">Shop Now</a>
-      </div>
-    </section>
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <div class="hero-text">
+                <h1>Discover Your Perfect Space</h1>
+                <p>Explore our curated collection of modern and classic furniture to transform your home.</p>
+                <a href="#" class="btn-primary">Shop Now</a>
+            </div>
+        </section>
 
-    <!-- Products -->
-    <section id="shop" class="products-section">
-      <h2>Featured Products</h2>
-      <p>Browse our exclusive selection of high-quality furniture designed to elevate your living space.</p>
+        <!-- Products -->
+        <section id="shop" class="products-section">
+            <h2>Featured Products</h2>
+            <p>Browse our exclusive selection of high-quality furniture designed to elevate your living space.</p>
 
-      <!-- Search -->
-      <div class="search">
-        <div class="search-container">
-          <input type="text" id="search-input" placeholder="Search for products..." />
-          <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div class="search-results" id="search-results"></div>
-      </div>
+            <div class="search-filter">
+                <!-- Filter Toggle Button -->
+                <button id="filter-toggle" class="filter-toggle"><i class="fa-solid fa-bars"></i> Filters</button>
 
-      <div class="products" id="product-list"></div>
-    </section>
+                <!-- Sliding Sidebar for Filters -->
+                <aside id="filter-sidebar">
+                    <button id="close-filter" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+                    <div id="filter-section">
+                        <h3>Filter Products</h3>
 
-    <!-- About -->
-    <section class="about" id="about">
-      <h2>About Us</h2>
-      <div class="about-container">
-        <div class="about-text">
-          <p>Welcome to Modern Furniture Store, your one-stop destination for high-quality furniture that combines style and comfort.</p>
-          <p>Our mission is to provide the best selection of modern and classic pieces that suit your taste and budget.</p>
-          <p>Furniture should not only be functional but also enhance the beauty of your home. We carefully curate our collection with premium materials to reflect that vision.</p>
-        </div>
-        <div class="about-image">
-          <img src="images/b8.jpg" alt="About Us" />
-        </div>
-      </div>
-    </section>
+                        <div class="filter-group" id="category-filters">
+                            <!-- JS fills this -->
+                        </div>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-      <h2>What Our Customers Say</h2>
-      <div class="testimonial-container">
-        <div class="testimonial-card">
-          <p>"I love my new sofa! It's comfortable and looks great in my living room."</p>
-          <h3>- Sarah J.</h3>
-        </div>
-        <div class="testimonial-card">
-          <p>"The quality of the furniture is outstanding. Highly recommend!"</p>
-          <h3>- Mark T.</h3>
-        </div>
-        <div class="testimonial-card">
-          <p>"Great customer service and fast delivery. Will shop again!"</p>
-          <h3>- Emily R.</h3>
-        </div>
-      </div>
-    </section>
+                        <div class="filter-group" id="price-range">
+                            <input type="number" id="min-price" placeholder="Min Price">
+                            <input type="number" id="max-price" placeholder="Max Price">
+                        </div>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-      <p>If you have any questions or need assistance, feel free to reach out.</p>
-      <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
-      <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-      <p>Address: 123 Modern St, Furniture City, FC 12345</p>
-      <p>We are here to help you with any inquiries or support.</p>
-      <p>Follow us for the latest updates and promotions:</p>
-      <div class="social-icons">
-        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
-      </div>
-    </section>
+                        <button id="apply-filters">Apply Filters</button>
+                    </div>
+                </aside>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated with the latest furniture trends, promotions, and offers.</p>
-      <form id="newsletter-form">
-        <input type="email" placeholder="Enter your email" required />
-        <button type="submit" class="btn-primary">Subscribe</button>
-      </form>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-container">
-        <div class="footer-links">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h3>Contact Us</h3>
-          <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
-          <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
-          <p>Address: 123 Modern St, Furniture City, FC 12345</p>
-        </div>
-        <div class="footer-social">
-          <h3>Follow Us</h3>
-          <div class="social-icons">
-            <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
-          </div>
-        </div>
-      </div>
-      <hr />
-      <div class="footer-bottom">
-        <p>&copy; 2025 - <script>document.write(new Date().getFullYear());</script> Modern Furniture Store. All rights reserved.</p>
-        <p>Designed by <a href="https://paulmagadi.github.io" target="_blank" rel="noopener noreferrer">paulmagadi</a></p>
-      </div>
-    </footer>
+                <!-- Search -->
+                <div class="search">
+                    <div class="search-container">
+                        <input type="text" id="search-input" placeholder="Search for products..." />
+                        <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
 
-    <!-- Product Modal -->
-    <div class="product-modal" id="product-modal">
-      <div class="product-modal-content">
-        <div class="product-modal-header">
-          <h2>Product Details</h2>
-          <button class="close-product-modal" id="close-product-modal"><i class="fa-solid fa-xmark"></i></button>
+            <!-- Product List -->
+            <div class="products" id="product-list"></div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button class="page-button" id="prev-page" disabled>Previous</button>
+                <span id="page-info">Page 1 of 1</span>
+                <button class="page-button" id="next-page">Next</button>
+            </div>
+
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about">
+            <h2>About Us</h2>
+            <div class="about-container">
+                <div class="about-text">
+                    <p>Welcome to Modern Furniture Store, your one-stop destination for high-quality furniture that
+                        combines style and comfort.</p>
+                    <p>Our mission is to provide the best selection of modern and classic pieces that suit your taste
+                        and budget.</p>
+                    <p>Furniture should not only be functional but also enhance the beauty of your home. We carefully
+                        curate our collection with premium materials to reflect that vision.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/b8.jpg" alt="About Us" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <p>"I love my new sofa! It's comfortable and looks great in my living room."</p>
+                    <h3>- Sarah J.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The quality of the furniture is outstanding. Highly recommend!"</p>
+                    <h3>- Mark T.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Great customer service and fast delivery. Will shop again!"</p>
+                    <h3>- Emily R.</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, feel free to reach out.</p>
+            <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
+            <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            <p>Address: 123 Modern St, Furniture City, FC 12345</p>
+            <p>We are here to help you with any inquiries or support.</p>
+            <p>Follow us for the latest updates and promotions:</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with the latest furniture trends, promotions, and offers.</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:modernf@gmail.com">modernf@gmail.com</a></p>
+                    <p>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p>Address: 123 Modern St, Furniture City, FC 12345</p>
+                </div>
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="footer-bottom">
+                <p>&copy; 2025 -
+                    <script>document.write(new Date().getFullYear());</script> Modern Furniture Store. All rights
+                    reserved.
+                </p>
+                <p>Designed by <a href="https://paulmagadi.github.io" target="_blank"
+                        rel="noopener noreferrer">paulmagadi</a></p>
+            </div>
+        </footer>
+
+        <!-- Product Modal -->
+        <div class="product-modal" id="product-modal">
+            <div class="product-modal-content">
+                <div class="product-modal-header">
+                    <h2>Product Details</h2>
+                    <button class="close-product-modal" id="close-product-modal"><i
+                            class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="product-modal-body">
+                    <img src="" alt="Product Image" id="modal-product-image" />
+                    <h3 id="modal-product-title"></h3>
+                    <p class="price" id="modal-product-price"></p>
+                    <p class="description" id="modal-product-description"></p>
+                    <button id="modal-add-to-cart" class="add-to-cart btn-primary">Add to Cart</button>
+                </div>
+                <div class="product-modal-footer">
+                    <a href="" class="btn-secondary" id="view-more-button">View More</a>
+                    <button class="btn-secondary close-product-modal" id="close-product-modal-footer">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="product-modal-body">
-          <img src="" alt="Product Image" id="modal-product-image" />
-          <h3 id="modal-product-title"></h3>
-          <p class="price" id="modal-product-price"></p>
-          <p class="description" id="modal-product-description"></p>
-          <button id="modal-add-to-cart" class="add-to-cart btn-primary">Add to Cart</button>
-        </div>
-        <div class="product-modal-footer">
-          <a href="" class="btn-secondary" id="view-more-button">View More</a>
-          <button class="btn-secondary close-product-modal" id="close-product-modal-footer">Close</button>
-        </div>
-      </div>
+
+        <!-- Alert -->
+        <div class="alert" id="alert"></div>
     </div>
 
-    <!-- Alert -->
-    <div class="alert" id="alert"></div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="main.js"></script>
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 
 </html>

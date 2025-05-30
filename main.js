@@ -29,7 +29,45 @@ const products = [
     { id: 6, name: "Coffee Table", price: 89, category: "Living Room", image: "images/p6.png", description: "A modern coffee table that complements your living room decor." },
     { id: 7, name: "Wardrobe", price: 599, category: "Bedroom", image: "images/p7.png", description: "A spacious wardrobe with ample storage for your clothes and accessories." },
     { id: 8, name: "Accent Chair", price: 249, category: "Living Room", image: "images/p8.png", description: "A stylish accent chair that adds a pop of color to your living room." },
+    { id: 9, name: "Outdoor Lounge Chair", price: 159, category: "Outdoor", image: "images/p9.png", description: "A comfortable lounge chair for relaxing in your backyard or patio." },
+    { id: 10, name: "Bar Stool", price: 89, category: "Dining Room", image: "images/p10.png", description: "A modern bar stool that fits perfectly at your kitchen counter or bar." },
+    { id: 11, name: "Storage Ottoman", price: 79, category: "Living Room", image: "images/p11.png", description: "A versatile storage ottoman that can be used as a footrest or extra seating." },
+    { id: 12, name: "TV Stand", price: 199, category: "Living Room", image: "images/p12.png", description: "A sleek TV stand with storage for your media devices." },
+    { id: 13, name: "Recliner Chair", price: 349, category: "Living Room", image: "images/p13.png", description: "A comfortable recliner chair for ultimate relaxation." },
+    { id: 14, name: "Dresser", price: 299, category: "Bedroom", image: "images/p14.png", description: "A stylish dresser with multiple drawers for your clothing." },
+    { id: 15, name: "Console Table", price: 129, category: "Hallway", image: "images/p15.png", description: "A modern console table perfect for your hallway or entryway." },
+    { id: 16, name: "Patio Dining Set", price: 799, category: "Outdoor", image: "images/p16.png", description: "An outdoor dining set that seats up to eight people." }
 ];
+
+// ========== Generate Category Filters ========== //
+(function generateCategoryFilters() {
+    const categories = [...new Set(products.map(p => p.category))];
+    const container = document.getElementById('category-filters');
+    categories.forEach(category => {
+        const label = document.createElement('label');
+        label.innerHTML = `
+            <input type="checkbox" class="category-filter" value="${category}">
+            ${category}
+        `;
+        container.appendChild(label);
+    });
+})();
+
+
+// ========== Filter Sidebar Toggle ========== //
+const toggleBtn = document.getElementById('filter-toggle');
+const filterSidebar = document.getElementById('filter-sidebar');
+const closeBtn = document.getElementById('close-filter');
+
+toggleBtn.addEventListener('click', () => {
+    filterSidebar.classList.add('open');
+});
+
+closeBtn.addEventListener('click', () => {
+    filterSidebar.classList.remove('open');
+});
+
+
 
 // ========== Product Rendering ========== //
 function renderProducts(list) {
@@ -56,6 +94,45 @@ function attachViewButtons() {
         });
     });
 }
+
+
+// ========== Pagination ========== //
+let currentProductList = [...products];
+let currentPage = 1;
+const itemsPerPage = 8; 
+
+function renderPagination(totalItems, itemsPerPage) {
+    const paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = '';
+
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.className = 'page-button';
+        if (i === currentPage) {
+            pageButton.classList.add('active-page');
+        }
+        pageButton.addEventListener('click', () => {
+            loadPage(i, itemsPerPage, currentProductList);
+        });
+        paginationContainer.appendChild(pageButton);
+    }
+}
+
+
+// ========== Load Page Function ========== //
+function loadPage(pageNumber, itemsPerPage, productList = currentProductList) {
+    currentPage = pageNumber;
+    const start = (pageNumber - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedProducts = productList.slice(start, end);
+    renderProducts(paginatedProducts);
+    attachViewButtons();
+    renderPagination(productList.length, itemsPerPage);
+}
+
+
 
 // ========== Product Modal ========== //
 function openProductModal(productId) {
@@ -98,22 +175,53 @@ document.querySelectorAll('.close-product-modal').forEach(btn => {
         clearBtn.style.display = input.value ? 'inline-block' : 'none';
         timeout = setTimeout(() => {
             const term = input.value.toLowerCase();
-            const results = products.filter(p => p.name.toLowerCase().includes(term) || p.description.toLowerCase().includes(term));
-            renderProducts(results);
-            attachViewButtons();
-            if (results.length === 0) {
-                document.getElementById('product-list').innerHTML += `<p class="no-results">No products found for <strong>${input.value}</strong>.</p>`;
+            currentProductList = products.filter(p =>
+                p.name.toLowerCase().includes(term) ||
+                p.description.toLowerCase().includes(term)
+            );
+
+            currentPage = 1; // reset to first page
+            if (currentProductList.length === 0) {
+                document.getElementById('product-list').innerHTML = `<p class="no-results">No products found for <strong>${input.value}</strong>.</p>`;
+                document.getElementById('pagination').innerHTML = '';
+            } else {
+                loadPage(currentPage, itemsPerPage, currentProductList);
             }
-        }, 600);
+        }, 500);
     });
 
     clearBtn.addEventListener('click', () => {
         input.value = '';
         clearBtn.style.display = 'none';
-        renderProducts(products);
-        attachViewButtons();
+        currentProductList = [...products];
+        currentPage = 1;
+        loadPage(currentPage, itemsPerPage, currentProductList);
     });
 })();
+
+
+// ========== Filter Functionality ========== //
+document.getElementById('apply-filters').addEventListener('click', () => {
+    const selectedCategories = Array.from(document.querySelectorAll('.category-filter:checked')).map(cb => cb.value);
+    const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+
+    currentProductList = products.filter(product => {
+        const inCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const inPriceRange = product.price >= minPrice && product.price <= maxPrice;
+        return inCategory && inPriceRange;
+    });
+
+    currentPage = 1;
+    if (currentProductList.length === 0) {
+        document.getElementById('product-list').innerHTML = '<p class="no-results">No products match your filters.</p>';
+        document.getElementById('pagination').innerHTML = '';
+    } else {
+        loadPage(currentPage, itemsPerPage, currentProductList);
+    }
+});
+
+
 
 // ========== Cart Management ========== //
 let cart = [];
@@ -197,8 +305,10 @@ document.getElementById('close-cart').addEventListener('click', () => {
 
 // ========== Init App ========== //
 document.addEventListener('DOMContentLoaded', () => {
-    renderProducts(products);
-    attachViewButtons();
+    currentProductList = [...products];
+    currentPage = 1;
+    loadPage(currentPage, itemsPerPage, currentProductList);
     updateCartDisplay();
     cartCount.textContent = 'Cart (0)';
 });
+
