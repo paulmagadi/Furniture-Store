@@ -19,6 +19,55 @@
     });
 })();
 
+// ========== Hero Image Slider ========== //
+
+(function initHeroSlider() {
+    const heroSection = document.querySelector('.hero');
+    // Array of image URLs for the background slider
+    const images = [
+        'images/b6.jpg',
+        'images/b2.jpg',
+        'images/b4.jpg',
+        'images/b1.jpg',
+        'images/b5.jpg',
+        'images/b3.jpg',
+        'images/b7.jpg'
+        // Add more image URLs as needed
+    ];
+    let currentSlide = 0;
+    const totalSlides = images.length;
+    const intervalMs = 5000; 
+
+    function showSlide(index) {
+        heroSection.style.background = `url('${images[index]}') no-repeat bottom center/cover`;
+    }
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    // Optional: If you have next/prev buttons, wire them up
+    const nextBtn = document.getElementById('next-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
+
+    showSlide(currentSlide);
+
+    // Auto-slide every 5 minutes
+    let sliderInterval = setInterval(nextSlide, intervalMs);
+
+    // Reset interval on manual navigation
+    function resetInterval() {
+        clearInterval(sliderInterval);
+        sliderInterval = setInterval(nextSlide, intervalMs);
+    }
+})();
+
 // ========== Product Data ========== //
 const products = [
     { id: 1, name: "Modern Sofa", price: 499, category: "Living Room", image: "images/p1.png", description: "A stylish and comfortable modern sofa perfect for any living room." },
@@ -224,9 +273,19 @@ document.getElementById('apply-filters').addEventListener('click', () => {
 });
 
 
-
 // ========== Cart Management ========== //
 let cart = [];
+
+// Load cart from localStorage
+function loadCart() {
+    const stored = localStorage.getItem('cart');
+    cart = stored ? JSON.parse(stored) : [];
+}
+
+// Save cart to localStorage
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 
 const alertEl = document.getElementById('alert');
 const cartContainer = document.getElementById('cart');
@@ -237,6 +296,7 @@ function addToCart(productId) {
     if (!product) return;
 
     cart.push(product);
+    saveCart();
     showAlert(`${product.name} added to cart!`);
     updateCartDisplay();
 }
@@ -288,6 +348,7 @@ function confirmRemove(id, name) {
     document.getElementById('confirm-remove-button').onclick = () => {
         const index = cart.findIndex(p => p.id === id);
         if (index !== -1) cart.splice(index, 1);
+        saveCart();
         updateCartDisplay();
         showAlert(`${name} removed from cart!`);
         modal.classList.remove('show-modal');
@@ -308,10 +369,27 @@ document.getElementById('close-cart').addEventListener('click', () => {
 
 // ========== Init App ========== //
 document.addEventListener('DOMContentLoaded', () => {
+    loadCart();
     currentProductList = [...products];
     currentPage = 1;
     loadPage(currentPage, itemsPerPage, currentProductList);
     updateCartDisplay();
-    cartCount.textContent = 'Cart (0)';
+    cartCount.textContent = `Cart (${cart.length})`;
+});
+
+
+// ========== Scroll to Top Button ========== //
+document.body.insertAdjacentHTML('beforeend', '<div class="scroll-to-top"><i class="fa-solid fa-arrow-up"></i></div>');
+const scrollToTopBtn = document.querySelector('.scroll-to-top');        
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.add('show');
+    } else {
+        scrollToTopBtn.classList.remove('show');
+    }
+
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
 

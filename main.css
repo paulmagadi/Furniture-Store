@@ -890,6 +890,29 @@ footer hr {
     text-decoration: underline;
 }
 
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 16.5px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+}
+.scroll-to-top:hover {
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.scroll-to-top.show {
+    display: block;
+}
+
 /* Responive Design */
 
 @media (max-width: 1000px) {

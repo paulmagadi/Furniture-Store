@@ -21,6 +21,8 @@ color: white; font-weight: 600; border-radius: 5px;" target="-blank">Live Demo</
 
 ## 🚀 Features
 
+✅ **Product List** 
+✅ **Product Details Modal**    
 ✅ **Add to Cart** with quantity tracking  
 ✅ **Remove from Cart** with modal confirmation  
 ✅ **Dynamic Cart Total**  
@@ -28,7 +30,7 @@ color: white; font-weight: 600; border-radius: 5px;" target="-blank">Live Demo</
 ✅ **Live Product Search**  
 ✅ **Pagination**  
 ✅ **Responsive UI**  
-🕒 **Cart Persistence with LocalStorage** (Coming soon)
+🕒 **Cart Persistence with LocalStorage** 
 
 ---
 
@@ -99,7 +101,7 @@ It uses flexbox, grid, and media queries for responsiveness.
 - Font Awesome – Icons
 
 ## 🔮 Roadmap
-- LocalStorage support for cart persistence
+- Product category pages
 - Checkout page & form
 - User login mockup
 - Backend (Django / Firebase) integration (optional future upgrade)
@@ -107,11 +109,11 @@ It uses flexbox, grid, and media queries for responsiveness.
 ## 📦 Installation
 
 ```
-git clone https://github.com/your-username/furniture-store.git
-cd furniture-store
+git clone https://github.com/paulmagadi/Furniture-Store.git
+cd Furniture-Store
 ```
 
-open index.html
+open `index.html`
 
 No build tools required — just open in your browser.
 
@@ -123,10 +125,4 @@ Paul Magadi
 
 ## 📄 License
 This project is licensed under the MIT License.
-
-
-
-
-
-
 
